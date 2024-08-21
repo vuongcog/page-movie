@@ -1,0 +1,35 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  img {
+    width: 48px;
+    height: 48px;
+  }
+  .container-name {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-shrink: 0;
+    .name {
+      color: var(--Grayscale-Grayscale-10, #f9f9f9);
+      font-family: Inter;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 24px;
+      letter-spacing: 0.08px;
+      margin: 0px;
+    }
+    .nickName {
+      color: var(--Grayscale-Grayscale-60, #9ca4ab);
+      font-family: Inter;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 20px;
+      letter-spacing: 0.06px;
+      margin: 0px;
+    }
+  }
+}
