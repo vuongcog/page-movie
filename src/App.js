@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Box, Container } from "@mui/system";
 import styles from "./styles.module.scss";
 import logo from "./assets/img/icon/logo.svg";
@@ -18,6 +18,10 @@ import bg5 from "./assets/img/avatars/Bg (5).svg";
 import bg6 from "./assets/img/avatars/Bg (6).svg";
 import start from "./assets/img/icon/star.svg";
 import movie1 from "./assets/img/picture/movie1.jpg";
+import movie2 from "./assets/img/picture/movie2.svg";
+import movie3 from "./assets/img/picture/movie3.svg";
+import movie4 from "./assets/img/picture/movie4.svg";
+import movie5 from "./assets/img/picture/movie5.svg";
 import video from "./assets/img/picture/video.svg";
 import "@fontsource/plus-jakarta-sans";
 import StreamBrand from "./components/StreamBrand";
@@ -28,6 +32,15 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "react-multi-carousel/lib/styles.css";
+import Carousel from "./components/Carousel";
+import ReactPlayer from "react-player";
+import video1 from "./Recording 2024-08-23 124021.mp4";
+import VideoPlayer from "./components/Video";
+import chapter1 from "./assets/img/picture/chapter1.jpg";
+import chapter2 from "./assets/img/picture/chapter2.png";
+import chapter3 from "./assets/img/picture/chapter3.png";
+import chapter4 from "./assets/img/picture/chapter4.jpg";
+import chapter5 from "./assets/img/picture/chapter5.png";
 
 const responsive = {
   desktop: {
@@ -43,6 +56,13 @@ const responsive = {
     items: 1,
   },
 };
+const settings = {
+  dots: true,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 5, // Hiển thị 5 nội dung
+  slidesToScroll: 1,
+};
 
 const App = () => {
   return (
@@ -54,7 +74,6 @@ const App = () => {
               <img src={logo}></img>
               <img src={saintStream} alt="" />
             </div>
-
             <div className={styles[`menu-container`]}>
               <span>Home</span>
               <span>Discover</span>
@@ -109,13 +128,13 @@ const App = () => {
             <span>collapses society</span>. The series follows <span>Joel</span>
             (<span>Pedro Pascal</span>), a smuggler tasked with escorting the
             immune teenager <span>Ellie</span> (<span>Bella Ramsey</span>)
-            across a post-apocalyptic United States....
+            across a post-apocalyptic United States....{" "}
             <span className={styles.more}>More</span>
           </p>
         </div>
         <div className={styles[`top-cast`]}>
           <h4 className={styles[`title-top-cast`]}>Top Cast</h4>
-          <div className={styles[`container-brand`]}>
+          <Carousel stylesButton={{ next: styles.next, pre: styles.pre }}>
             <StreamBrand
               avatar={bg}
               name={"Pedro Pascal"}
@@ -126,32 +145,37 @@ const App = () => {
               name={"Bella Ramsey"}
               nickName={"Ellie"}
             ></StreamBrand>
+
             <StreamBrand
               avatar={bg2}
               name={"Anna Torv"}
               nickName={"Tessa"}
             ></StreamBrand>
+
             <StreamBrand
               avatar={bg3}
               name={"Ashley Johnson"}
               nickName={"Ellie Mother"}
             ></StreamBrand>
+
             <StreamBrand
               avatar={bg4}
               name={"Nick Offerman"}
               nickName={"Bill"}
             ></StreamBrand>
+
             <StreamBrand
               avatar={bg5}
               name={"Nico Parker"}
               nickName={"Sarah Miller"}
             ></StreamBrand>
+
             <StreamBrand
               avatar={bg6}
               name={"Murray Bartlett"}
               nickName={"Frank"}
             ></StreamBrand>
-          </div>
+          </Carousel>
         </div>
       </div>
       <div className={styles[`container-options`]}>
@@ -162,93 +186,84 @@ const App = () => {
       </div>
       <div className={styles[`container-episode`]}>
         <span className={styles[`title-episode`]}>1-9 Episode</span>
-        <div className={styles[`container-list-brand`]}>
-          <div className={styles[`container-card`]}>
-            <div className={styles[`card-info`]}>
-              <span>Chapter1</span>
-              <p>
-                The chapter about geuinea just want to go out fromhis palace to
-                get freedom...
-              </p>
-              <img src={video} alt="" />
-            </div>
+        <Carousel>
+          <div
+            style={{
+              background: ` url(${chapter1}) lightgray 50% / cover
+          no-repeat`,
+            }}
+            className={styles[`container-card`]}
+          >
+            <VideoPlayer name={"Chapter 1"}></VideoPlayer>
           </div>
-          <div className={styles[`container-card`]}>
-            <div className={styles[`card-info`]}>
-              <span>Chapter 2</span>
-              <p>
-                The chapter about geuinea just want to go out fromhis palace to
-                get freedom...
-              </p>
-              <img src={video} alt="" />
-            </div>
+          <div
+            style={{
+              background: ` url(${chapter2}) lightgray 50% / cover
+          no-repeat`,
+            }}
+            className={styles[`container-card`]}
+          >
+            <VideoPlayer name={"Chapter 2"}></VideoPlayer>
           </div>
-          <div className={styles[`container-card`]}>
-            <div className={styles[`card-info`]}>
-              <span>Chapter 3</span>
-              <p>
-                The chapter about geuinea just want to go out fromhis palace to
-                get freedom...
-              </p>
-              <img src={video} alt="" />
-            </div>
+          <div
+            style={{
+              background: ` url(${chapter3}) lightgray 50% / cover
+          no-repeat`,
+            }}
+            className={styles[`container-card`]}
+          >
+            <VideoPlayer name={"Chapter 3"}></VideoPlayer>
           </div>
-          <div className={styles[`container-card`]}>
-            <div className={styles[`card-info`]}>
-              <span>Chapter 4</span>
-              <p>
-                The chapter about geuinea just want to go out fromhis palace to
-                get freedom...
-              </p>
-              <img src={video} alt="" />
-            </div>
+          <div
+            style={{
+              background: ` url(${chapter4}) lightgray 50% / cover
+          no-repeat`,
+            }}
+            className={styles[`container-card`]}
+          >
+            <VideoPlayer name={"Chapter 4"}></VideoPlayer>
           </div>
-          <div className={styles[`container-card`]}>
-            <div className={styles[`card-info`]}>
-              <span>Chapter 5</span>
-              <p>
-                The chapter about geuinea just want to go out fromhis palace to
-                get freedom...
-              </p>
-              <img src={video} alt="" />
-            </div>
-            <div className={styles[`last-item-1`]}></div>
+          <div
+            style={{
+              background: ` url(${chapter5}) lightgray 50% / cover
+          no-repeat`,
+            }}
+            className={styles[`container-card`]}
+          >
+            <VideoPlayer name={"Chapter 5"}></VideoPlayer>
           </div>
-        </div>
+        </Carousel>
       </div>
 
       <div className={styles[`movie-info`]}>
         <span className={styles[`title-movie`]}>Similar Movies for you</span>
-        <div className={styles[`list-movie`]}>
+        <Carousel>
           <div className={styles[`container-movies`]}>
             <img className={styles[`background`]} src={movie1} alt="" />
             <span className={styles[`name-movie`]}>TOP GUN:Maverick</span>
             <img src={rate} alt="" />
           </div>
           <div className={styles[`container-movies`]}>
-            <img className={styles[`background`]} src={movie1} alt="" />
+            <img className={styles[`background`]} src={movie2} alt="" />
             <span className={styles[`name-movie`]}>TOP GUN:Maverick</span>
             <img src={rate} alt="" />
           </div>
           <div className={styles[`container-movies`]}>
-            <img className={styles[`background`]} src={movie1} alt="" />
+            <img className={styles[`background`]} src={movie3} alt="" />
             <span className={styles[`name-movie`]}>TOP GUN:Maverick</span>
             <img src={rate} alt="" />
           </div>
           <div className={styles[`container-movies`]}>
-            <img className={styles[`background`]} src={movie1} alt="" />
+            <img className={styles[`background`]} src={movie4} alt="" />
             <span className={styles[`name-movie`]}>TOP GUN:Maverick</span>
             <img src={rate} alt="" />
           </div>
-          <div
-            className={`${styles[`container-movies`]} ${styles[`last-item`]}`}
-          >
-            <img className={styles[`background`]} src={movie1} alt="" />
+          <div className={styles[`container-movies`]}>
+            <img className={styles[`background`]} src={movie5} alt="" />
             <span className={styles[`name-movie`]}>TOP GUN:Maverick</span>
             <img src={rate} alt="" />
-            <div className={`${styles[`last-item`]}`}></div>
           </div>
-        </div>
+        </Carousel>
       </div>
     </div>
   );

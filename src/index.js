@@ -3,7 +3,9 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { createTheme, ThemeProvider } from "@mui/system";
+import Carousel from "./components/Carousel";
+import VideoPlayer from "./components/Video";
+import { createTheme, Slider, ThemeProvider } from "@mui/material";
 // import {createThem}
 const theme = createTheme({
   breakpoints: {},
@@ -39,11 +41,18 @@ const theme = createTheme({
     },
   },
 });
-
+const settings = {
+  className: "center",
+  centerMode: true,
+  infinite: true,
+  centerPadding: "60px",
+  slidesToShow: 3,
+  speed: 500,
+};
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <ThemeProvider theme={theme}>
-    <App />
+    <App></App>
   </ThemeProvider>
 );
 

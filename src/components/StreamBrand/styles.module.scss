@@ -1,4 +1,6 @@
 .container {
+  transform: scale(1.01);
+  transform-origin: 0 0;
   display: flex;
   align-items: center;
   gap: 12px;
@@ -13,7 +15,7 @@
     flex-shrink: 0;
     .name {
       color: var(--Grayscale-Grayscale-10, #f9f9f9);
-      font-family: Inter;
+      font-family: "Inter";
       font-size: 16px;
       font-style: normal;
       font-weight: 600;

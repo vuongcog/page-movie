@@ -5,7 +5,7 @@ const StreamBrand = ({ avatar, name, nickName }) => {
     <div className={styles.container}>
       <img src={avatar}></img>
       <div className={styles[`container-name`]}>
-        <h4 className={styles.name}>{name}</h4>
+        <div className={styles.name}>{name}</div>
         <h5 className={styles.nickName}>{nickName}</h5>
       </div>
     </div>
